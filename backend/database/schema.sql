@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    roll VARCHAR(30) NOT NULL,
+    department VARCHAR(10) NOT NULL
+        CHECK (department IN ('CSE', 'EEE', 'ECE')),
+    year INTEGER NOT NULL
+        CHECK (year BETWEEN 1900 AND 2100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
